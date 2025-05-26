@@ -172,3 +172,7 @@ cython_debug/
 
 # PyPI configuration file
 .pypirc
+
+# Ignore parsed_pages and scraped_pages folders
+parsed_pages/
+scraped_pages/
