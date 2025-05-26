@@ -198,6 +198,18 @@ See [Authentication and Authorization](Checkout.com_API_Authentication.md).
 - [Test Account](https://docs.checkout.com/test-account)
 - [Support](https://docs.checkout.com/support)
 
+## Payment Links
+Checkout.com supports creating and managing Payment Links to send payment requests to customers via various channels. For detailed information, see [Payment Links](Checkout.com_API_PaymentLinks.md).
+
+## Hosted Payments Page
+Checkout.com offers Hosted Payments Page (HPP), a secure, hosted payment solution that allows customers to complete payments on a Checkout.com hosted page. For detailed information, see [Hosted Payments Page](Checkout.com_API_HostedPayments.md).
+
+## Identity Verification and Card Issuing
+Checkout.com provides Identity Verification and Card Issuing services to help businesses comply with KYC/AML regulations and manage physical and virtual cards. For detailed information, see [Identity Verification and Card Issuing](Checkout.com_API_IdentityVerification_Issuing.md).
+
+## Payouts
+Checkout.com offers a comprehensive Payouts API to send funds to bank accounts or cards globally, with detailed formatting and scheduling options. For more information, see [Payouts API](Checkout.com_API_Payouts.md).
+
 ---
 
 *This documentation is based on the parsed content of Checkout.com API reference pages and the OAuth 2.0 RFC 6749 standard.*
