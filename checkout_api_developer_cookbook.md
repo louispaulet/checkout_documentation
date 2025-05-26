@@ -232,6 +232,27 @@ createPayment();
 
 For more code examples and integration guides, see [Flow Integration](Checkout.com_API_Flow.md).
 
+### Curl Example: Create a Payment
+
+```bash
+curl https://api.checkout.com/payments \
+  -H "Authorization: Bearer sk_test_your_secret_key" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "source": {
+      "type": "card",
+      "number": "4242424242424242",
+      "expiry_month": 6,
+      "expiry_year": 2025,
+      "cvv": "100"
+    },
+    "amount": 1000,
+    "currency": "USD",
+    "reference": "ORD-12345",
+    "capture": true
+  }'
+```
+
 ---
 
 This cookbook is a starting point. For full API details, refer to the official [Checkout.com API Reference](https://api-reference.checkout.com/).

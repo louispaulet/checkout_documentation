@@ -59,51 +59,57 @@ Checkout.com offers card issuing capabilities to create and manage physical and 
 - Manage card disputes.
 
 ### Example: Create a Cardholder
-```json
-POST /issuing/cardholders
-{
-  "type": "individual",
-  "first_name": "John",
-  "last_name": "Doe",
-  "email": "john.doe@example.com",
-  "date_of_birth": "1985-05-15",
-  "billing_address": {
-    "address_line1": "123 Main St",
-    "city": "London",
-    "country": "GB"
-  }
-}
+```bash
+curl https://api.checkout.com/issuing/cardholders \
+  -H "Authorization: Bearer sk_test_your_secret_key" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "type": "individual",
+    "first_name": "John",
+    "last_name": "Doe",
+    "email": "john.doe@example.com",
+    "date_of_birth": "1985-05-15",
+    "billing_address": {
+      "address_line1": "123 Main St",
+      "city": "London",
+      "country": "GB"
+    }
+  }'
 ```
 
 ### Example: Issue a Virtual Card
-```json
-POST /issuing/cards
-{
-  "type": "virtual",
-  "cardholder_id": "crh_123456",
-  "card_product_id": "pro_123456",
-  "lifetime": {
-    "unit": "Months",
-    "value": 12
-  },
-  "display_name": "John's Virtual Card"
-}
+```bash
+curl https://api.checkout.com/issuing/cards \
+  -H "Authorization: Bearer sk_test_your_secret_key" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "type": "virtual",
+    "cardholder_id": "crh_123456",
+    "card_product_id": "pro_123456",
+    "lifetime": {
+      "unit": "Months",
+      "value": 12
+    },
+    "display_name": "John\'s Virtual Card"
+  }'
 ```
 
 ### Example: Enroll Card in 3DS
-```json
-POST /issuing/cards/{cardId}/3ds-enrollment
-{
-  "security_pair": {
-    "question": "What is your pet's name?",
-    "answer": "Fluffy"
-  },
-  "phone_number": {
-    "country_code": "+1",
-    "number": "4155552671"
-  },
-  "locale": "en-US"
-}
+```bash
+curl https://api.checkout.com/issuing/cards/{cardId}/3ds-enrollment \
+  -H "Authorization: Bearer sk_test_your_secret_key" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "security_pair": {
+      "question": "What is your pet\'s name?",
+      "answer": "Fluffy"
+    },
+    "phone_number": {
+      "country_code": "+1",
+      "number": "4155552671"
+    },
+    "locale": "en-US"
+  }'
 ```
 
 ---

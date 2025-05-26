@@ -16,29 +16,32 @@ POST https://api.checkout.com/hosted-payments
 ```
 
 **Request Example:**
-```json
-{
-  "amount": 1000,
-  "currency": "GBP",
-  "payment_type": "Regular",
-  "billing": {
-    "address": {
-      "country": "GB"
-    }
-  },
-  "reference": "ORD-123A",
-  "customer": {
-    "name": "Ali Farid",
-    "email": "ali@example.com",
-    "phone": {
-      "country_code": "+44",
-      "number": "79460000"
-    }
-  },
-  "success_url": "https://example.com/payments/success",
-  "failure_url": "https://example.com/payments/failure",
-  "cancel_url": "https://example.com/payments/cancel"
-}
+```bash
+curl https://api.checkout.com/hosted-payments \
+  -H "Authorization: Bearer sk_test_your_secret_key" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "amount": 1000,
+    "currency": "GBP",
+    "payment_type": "Regular",
+    "billing": {
+      "address": {
+        "country": "GB"
+      }
+    },
+    "reference": "ORD-123A",
+    "customer": {
+      "name": "Ali Farid",
+      "email": "ali@example.com",
+      "phone": {
+        "country_code": "+44",
+        "number": "79460000"
+      }
+    },
+    "success_url": "https://example.com/payments/success",
+    "failure_url": "https://example.com/payments/failure",
+    "cancel_url": "https://example.com/payments/cancel"
+  }'
 ```
 
 ## Redirecting Customers
@@ -65,6 +68,11 @@ GET https://api.checkout.com/hosted-payments/{id}
 ```
 
 **Response Example:**
+```bash
+curl https://api.checkout.com/hosted-payments/hpp_xGQBg0AXl3cM \
+  -H "Authorization: Bearer sk_test_your_secret_key"
+```
+
 ```json
 {
   "id": "hpp_xGQBg0AXl3cM",

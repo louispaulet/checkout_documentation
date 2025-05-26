@@ -22,6 +22,13 @@ Checkout.com offers a unified payments platform that enables businesses to accep
 - Supports Mutual TLS (mTLS) and AWS PrivateLink for secure connections.
 - Backward-compatible API changes are common; breaking changes are communicated in advance.
 
+## Additional Features
+- Supports Payment Links and Hosted Payments Page for flexible payment acceptance.
+- Provides Identity Verification and Card Issuing services for compliance and card management.
+- Offers comprehensive Payouts API for global fund transfers.
+
 ---
+
+*This overview provides a high-level understanding of the Checkout.com API platform and its core features.*
 
 *This overview provides a high-level understanding of the Checkout.com API platform and its core features.*

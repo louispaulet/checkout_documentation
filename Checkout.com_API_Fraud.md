@@ -55,6 +55,11 @@ Checkout.com's Fraud Detection solution helps merchants control the types of pay
 - Understand case sensitivity in comparisons.
 - Use EXISTS and IS_MISSING operators for NULL checks.
 
+## Additional Information
+- Use the Dashboard to view and manage your fraud rules and decline lists.
+- Monitor transaction assessments to understand how rules are applied.
+- Leverage machine learning models for enhanced fraud detection accuracy.
+
 ---
 
 *This document provides comprehensive guidance on configuring and managing fraud detection with Checkout.com.*

@@ -43,67 +43,73 @@
 ## Code Examples
 
 ### Example: Create a Recurring Payment with Stored Card
-```json
-POST https://api.checkout.com/payments
-{
-  "source": {
-    "type": "card",
-    "number": "4242424242424242",
-    "expiry_month": 10,
-    "expiry_year": 2026,
-    "store_for_future_use": true
-  },
-  "amount": 5000,
-  "currency": "USD",
-  "payment_type": "Recurring",
-  "merchant_initiated": false,
-  "3ds": {
-    "enabled": true,
-    "challenge_indicator": "challenge_requested_mandate"
-  }
-}
+```bash
+curl https://api.checkout.com/payments \
+  -H "Authorization: Bearer sk_test_your_secret_key" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "source": {
+      "type": "card",
+      "number": "4242424242424242",
+      "expiry_month": 10,
+      "expiry_year": 2026,
+      "store_for_future_use": true
+    },
+    "amount": 5000,
+    "currency": "USD",
+    "payment_type": "Recurring",
+    "merchant_initiated": false,
+    "3ds": {
+      "enabled": true,
+      "challenge_indicator": "challenge_requested_mandate"
+    }
+  }'
 ```
 
 ### Example: Subsequent Merchant-Initiated Transaction (MIT)
-```json
-POST https://api.checkout.com/payments
-{
-  "source": {
-    "type": "card",
-    "stored": true
-  },
-  "amount": 5000,
-  "currency": "USD",
-  "payment_type": "Recurring",
-  "merchant_initiated": true,
-  "previous_payment_id": "pay_123456789"
-}
+```bash
+curl https://api.checkout.com/payments \
+  -H "Authorization: Bearer sk_test_your_secret_key" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "source": {
+      "type": "card",
+      "stored": true
+    },
+    "amount": 5000,
+    "currency": "USD",
+    "payment_type": "Recurring",
+    "merchant_initiated": true,
+    "previous_payment_id": "pay_123456789"
+  }'
 ```
 
 ### Example: Configure Retry Schedule
-```json
-POST https://api.checkout.com/payments
-{
-  "source": {
-    "type": "card",
-    "number": "4242424242424242",
-    "expiry_month": 12,
-    "expiry_year": 2029,
-    "cvv": "422"
-  },
-  "amount": 100,
-  "currency": "GBP",
-  "capture": false,
-  "merchant_initiated": true,
-  "payment_type": "Recurring",
-  "retry": {
-    "dunning": {
-      "enabled": true,
-      "end_after_days": 21,
-      "max_attempts": 4
+```bash
+curl https://api.checkout.com/payments \
+  -H "Authorization: Bearer sk_test_your_secret_key" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "source": {
+      "type": "card",
+      "number": "4242424242424242",
+      "expiry_month": 12,
+      "expiry_year": 2029,
+      "cvv": "422"
+    },
+    "amount": 100,
+    "currency": "GBP",
+    "capture": false,
+    "merchant_initiated": true,
+    "payment_type": "Recurring",
+    "retry": {
+      "dunning": {
+        "enabled": true,
+        "end_after_days": 21,
+        "max_attempts": 4
+      }
     }
-  }
-}
+  }'
 ```
 
 ---

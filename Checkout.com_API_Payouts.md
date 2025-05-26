@@ -11,40 +11,43 @@ The Payouts API allows you to send funds to bank accounts or cards globally. It 
 - Supported countries include Austria, Belgium, Bulgaria, Croatia, Cyprus, Czech Republic, Denmark, Estonia, Finland, France, Germany, Greece, Hungary, Iceland, Ireland, Italy, Latvia, Liechtenstein, Lithuania, Luxembourg, Malta, Monaco, Netherlands, Norway, Poland, Portugal, Romania, San Marino, Slovakia, Slovenia, Spain, Sweden, Switzerland, United Kingdom, United States, and more.
 
 ### Example: Bank Payout Request (Austria)
-```json
-{
-  "source": {
-    "type": "currency_account",
-    "id": "ca_pt5kvurrlmrube2crzaqdhqbdm"
-  },
-  "amount": 10,
-  "destination": {
-    "type": "bank_account",
-    "account_type": "current",
-    "iban": "AT611904300234573201",
-    "country": "AT",
-    "account_holder": {
-      "type": "individual",
-      "first_name": "John",
-      "last_name": "Smith",
-      "billing_address": {
-        "address_line1": "123 Example St.",
-        "city": "Vienna",
-        "zip": "1010",
-        "country": "AT"
+```bash
+curl https://api.checkout.com/payouts \
+  -H "Authorization: Bearer sk_test_your_secret_key" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "source": {
+      "type": "currency_account",
+      "id": "ca_pt5kvurrlmrube2crzaqdhqbdm"
+    },
+    "amount": 10,
+    "destination": {
+      "type": "bank_account",
+      "account_type": "current",
+      "iban": "AT611904300234573201",
+      "country": "AT",
+      "account_holder": {
+        "type": "individual",
+        "first_name": "John",
+        "last_name": "Smith",
+        "billing_address": {
+          "address_line1": "123 Example St.",
+          "city": "Vienna",
+          "zip": "1010",
+          "country": "AT"
+        }
       }
-    }
-  },
-  "currency": "EUR",
-  "reference": "Payouts - AT Testing",
-  "billing_descriptor": {
-    "reference": "CKO - payouts - AT Testing"
-  },
-  "instruction": {
-    "purpose": "Payouts - sbox Testing"
-  },
-  "processing_channel_id": "pc_ru45af4clzpeffww6fd5bqlvje"
-}
+    },
+    "currency": "EUR",
+    "reference": "Payouts - AT Testing",
+    "billing_descriptor": {
+      "reference": "CKO - payouts - AT Testing"
+    },
+    "instruction": {
+      "purpose": "Payouts - sbox Testing"
+    },
+    "processing_channel_id": "pc_ru45af4clzpeffww6fd5bqlvje"
+  }'
 ```
 
 ## Card Payouts

@@ -75,6 +75,12 @@ grant_type=authorization_code&code=AUTH_CODE&redirect_uri=YOUR_REDIRECT_URI&clie
 }
 ```
 
+## Additional Information
+- OAuth tokens are typically JWTs and must be securely stored.
+- Access tokens have limited lifetimes; use refresh tokens to obtain new ones.
+- Use scopes to limit token permissions.
+- Always use HTTPS to protect token transmission.
+
 ---
 
 *This document provides detailed guidance on authenticating and authorizing API requests using OAuth 2.0 with Checkout.com.*
