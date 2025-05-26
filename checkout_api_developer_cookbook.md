@@ -22,17 +22,21 @@ This developer cookbook provides practical examples, usage patterns, and best pr
 
 Checkout.com provides a comprehensive API for processing payments, managing customers, and handling refunds. This cookbook will guide you through common tasks and provide example requests and responses.
 
+For a high-level overview, see [Checkout.com API Overview](Checkout.com_API_Overview.md).
+
 ---
 
 ## Authentication
 
-All API requests require authentication using your secret API key. Include the key in the `Authorization` header as a Bearer token.
+All API requests require authentication using your secret API key or OAuth 2.0 tokens. Include the key in the `Authorization` header as a Bearer token.
 
-**Example:**
+**Example: Using API Key**
 
 ```
 Authorization: Bearer sk_test_your_secret_key
 ```
+
+For OAuth 2.0 authentication details, see [Authentication and Authorization](Checkout.com_API_Authentication.md).
 
 ---
 
@@ -41,6 +45,7 @@ Authorization: Bearer sk_test_your_secret_key
 - Base URL: `https://api.checkout.com`
 - Content-Type: `application/json`
 - Use HTTPS for all requests.
+- Use idempotency keys to safely retry requests without duplicates (see [API Overview](Checkout.com_API_Overview.md#idempotency)).
 
 ---
 
@@ -125,40 +130,7 @@ Checkout.com supports multiple payment flows:
 }
 ```
 
----
-
-## Webhooks
-
-Checkout.com supports webhooks to notify your system about payment events such as successful payments, refunds, and chargebacks.
-
-- Configure webhook endpoints in your dashboard.
-- Validate webhook signatures to ensure authenticity.
-- Handle events idempotently to avoid duplicate processing.
-
----
-
-## Idempotency
-
-Use idempotency keys in the `Idempotency-Key` header to safely retry requests without creating duplicate transactions.
-
-**Example:**
-
-```
-Idempotency-Key: your-unique-key-123
-```
-
----
-
-## Pagination and Filtering
-
-Many list endpoints support pagination and filtering via query parameters:
-
-- `limit`: Number of items per page.
-- `starting_after` / `ending_before`: Cursor-based pagination.
-- Filter by status, date, or other fields.
-
----
-
+For more payment options and details, see [Payments API](Checkout.com_API_Payments.md).
 
 ---
 
@@ -218,6 +190,7 @@ Many list endpoints support pagination and filtering via query parameters:
 - Use idempotency keys to avoid duplicate charges.
 - Securely store your API keys.
 - Handle errors gracefully and log them for troubleshooting.
+- Use the [Fraud Detection and Risk Management](Checkout.com_API_Fraud.md) features to reduce fraud risk.
 
 ---
 
@@ -257,63 +230,10 @@ async function createPayment() {
 createPayment();
 ```
 
+For more code examples and integration guides, see [Flow Integration](Checkout.com_API_Flow.md).
+
 ---
 
 This cookbook is a starting point. For full API details, refer to the official [Checkout.com API Reference](https://api-reference.checkout.com/).
 
 ---
-
-## Additional API Reference Highlights from Online Documentation
-
-### Authentication
-
-- Supports API keys (public and secret) and OAuth 2.0.
-- Use `Authorization: Bearer <token>` header for authenticated requests.
-- OAuth token endpoint: `https://access.checkout.com/connect/token`
-
-### Payments
-
-- Create payments, capture, void, refund, and search payments.
-- Supports multiple payment flows: authorize & capture, authorize only, capture later, void.
-- SDKs available for Go, .NET, Java, Node.js, and more.
-
-### Webhooks
-
-- Configure webhook endpoints to receive event notifications.
-- Validate webhook signatures.
-- Handle events idempotently.
-
-### Customers
-
-- Create, update, retrieve, and delete customer records.
-- Manage customer payment instruments.
-
-### Disputes
-
-- Retrieve disputes, submit evidence, accept disputes, escalate, and more.
-- SDK support for dispute management.
-
-### Workflows
-
-- Automate payment and business logic workflows.
-- Manage workflows, actions, conditions, and events.
-
-### Platforms
-
-- Onboard entities, manage sub-entities, and handle payouts.
-
-### Other Features
-
-- Hosted Payments Page, Payment Links, Forex rates, Apple Pay integration.
-- Reporting APIs for transaction and financial reports.
-- Cardholder and card management.
-- Controls and control profiles for risk management.
-
-### Code Samples
-
-- Extensive code samples in multiple languages are available in the official docs.
-- Use SDKs for easier integration and error handling.
-
----
-
-This enhanced cookbook is based on the official online API reference content and provides a practical guide for developers integrating with Checkout.com.
