@@ -15,12 +15,12 @@ Checkout.com offers a unified payments platform that enables businesses to accep
 - Common HTTP status codes include 200, 201, 401, 403, 404, 429, 500, etc. See [Payments API - HTTP Status Codes](Checkout.com_API_Payments.md#http-status-codes).
 
 ## API Rate Limits and Idempotency
-- Read and write operations limited to 100 RPS. See [API Overview - Rate Limits](Checkout.com_API_Overview.md#api-rate-limits).
-- Idempotency supported via `Cko-Idempotency-Key` header to prevent duplicate processing. See [API Overview - Idempotency](Checkout.com_API_Overview.md#idempotency).
+- Read and write operations limited to 100 RPS. See [Payments API - API Rate Limits](Checkout.com_API_Payments.md#api-rate-limits).
+- Idempotency supported via `Cko-Idempotency-Key` header to prevent duplicate processing. See [Payments API - Idempotency](Checkout.com_API_Payments.md#idempotency).
 
 ## Private Connections and API Changes
-- Supports Mutual TLS (mTLS) and AWS PrivateLink for secure connections. See [API Overview - Private Connections](Checkout.com_API_Overview.md#private-connections).
-- Backward-compatible API changes are common; breaking changes are communicated in advance. See [API Overview - API Changes](Checkout.com_API_Overview.md#api-changes).
+- Supports Mutual TLS (mTLS) and AWS PrivateLink for secure connections. See [Payments API - Private Connections](Checkout.com_API_Payments.md#private-connections).
+- Backward-compatible API changes are common; breaking changes are communicated in advance. See [Payments API - API Changes](Checkout.com_API_Payments.md#api-changes).
 
 ## Additional Features
 - Supports [Payment Links](Checkout.com_API_PaymentLinks.md) and [Hosted Payments Page](Checkout.com_API_HostedPayments.md) for flexible payment acceptance.
